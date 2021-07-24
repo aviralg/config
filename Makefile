@@ -3,6 +3,7 @@ PROJECT := config-fish
 all:
 	make setup PROJECT=config-fish
 	make setup PROJECT=config-starship
+	make setup PROJECT=config-fzf
 	make setup PROJECT=config-zoxide
 	make setup PROJECT=config-terminal
 	make setup PROJECT=config-tmux
