@@ -1,25 +1,25 @@
-PROJECT := config-fish
+PROJECT := fish
 
 all:
-	make setup PROJECT=config-fish
-	make setup PROJECT=config-starship
-	make setup PROJECT=config-fzf
-	make setup PROJECT=config-zoxide
-	make setup PROJECT=config-terminal
-	make setup PROJECT=config-tmux
-	make setup PROJECT=config-tmuxp
-	make setup PROJECT=config-vifm
-	make setup PROJECT=config-qutebrowser
-	make setup PROJECT=config-htop
+	make setup PROJECT=fish
+	make setup PROJECT=starship
+	make setup PROJECT=fzf
+	make setup PROJECT=zoxide
+	make setup PROJECT=terminal
+	make setup PROJECT=tmux
+	make setup PROJECT=tmuxp
+	make setup PROJECT=vifm
+	make setup PROJECT=qutebrowser
+	make setup PROJECT=htop
 
 download:
-	git clone git@github.com:aviralg/$(PROJECT)
+	git clone git@github.com:aviralg/config-$(PROJECT)
 
 install:
-	cd $(PROJECT) && ./install
+	cd config-$(PROJECT) && ./install
 
 configure:
-	cd $(PROJECT) && ./configure
+	cd config-$(PROJECT) && ./configure
 
 setup:
 	make download PROJECT=$(PROJECT)
