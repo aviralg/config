@@ -1,65 +1,80 @@
-#!/usr/bin/env fish
+PROJECT := config-fish
 
-function setup --argument project
-    echo "################################################################################"
-    echo "#$project"
-    git clone git@github.com:aviralg/$project
-    cd $project && ./install && ./configure && cd ..
-    echo "################################################################################\n\n"
-end
+all:
+	make setup PROJECT=config-fish
+	make setup PROJECT=config-starship
+	make setup PROJECT=config-terminal
+	make setup PROJECT=config-tmux
+	make setup PROJECT=config-tmuxp
+	make setup PROJECT=config-vifm
+	make setup PROJECT=config-qutebrowser
+	make setup PROJECT=config-htop
 
+download:
+	git clone git@github.com:aviralg/$(PROJECT)
+
+install:
+	cd $(PROJECT) && ./install
+
+configure:
+	cd $(PROJECT) && ./configure
+
+setup:
+	make download PROJECT=$(PROJECT)
+	make install PROJECT=$(PROJECT)
+	make configure PROJECT=$(PROJECT)
 
 ################################################################################
 # fish (https://fishshell.com/)
 ################################################################################
-setup config-fish
+# setup config-fish
 
 ################################################################################
 # fish (https://fishshell.com/)
 ################################################################################
-setup config-starship
+# setup config-starship
 
 ################################################################################
 # Terminal
 ################################################################################
-setup config-terminal
+# setup config-terminal
 
 ################################################################################
 # tmux (https://github.com/tmux/tmux/wiki)
 ################################################################################
-setup config-tmux
+# setup config-tmux
 
 ################################################################################
 # tmuxp (https://tmuxp.git-pull.com/quickstart.html)
 ################################################################################
-setup config-tmuxp
+# setup config-tmuxp
 
 ################################################################################
 # vifm (https://vifm.info/)
 ################################################################################
-setup config-vifm
+# setup config-vifm
 
 ################################################################################
 # qutebrowser (https://qutebrowser.org/)
 ################################################################################
-setup config-qutebrowser
+# setup config-qutebrowser
 
 ################################################################################
 # htop (https://htop.dev/)
 ################################################################################
-setup config-htop
+# setup config-htop
 
 ################################################################################
 # bat (https://github.com/sharkdp/bat)
 ################################################################################
-switch (uname)
-    case Linux
-        sudo apt-get install bat fzf fd ripgrep tokei dust zoxide
-    case Darwin
-        brew install bat fzf fd ripgrep tokei dust zoxide
-end
-
-pip3 install -U glances radian
+#switch (uname)
+#    case Linux
+#        sudo apt-get install bat fzf fd ripgrep tokei dust zoxide
+#    case Darwin
+#        brew install bat fzf fd ripgrep tokei dust zoxide
+#end
+#
+#pip3 install -U glances radian
 
 ################################################################################
 # fzf (https://github.com/junegunn/fzf)
