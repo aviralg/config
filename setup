@@ -4,7 +4,7 @@ function setup --argument project
     echo "################################################################################"
     echo "#$project"
     git clone git@github.com:aviralg/$project
-    cd $project && ./install && ./configure
+    cd $project && ./install && ./configure && cd ..
     echo "################################################################################\n\n"
 end
 
