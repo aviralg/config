@@ -1,8 +1,11 @@
 #!/usr/bin/env fish
 
 function setup --argument project
+    echo "################################################################################"
+    echo "#$project"
     git clone git@github.com:aviralg/$project
     cd $project && ./install && ./configure
+    echo "################################################################################\n\n"
 end
 
 
