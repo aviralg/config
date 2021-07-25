@@ -3,6 +3,7 @@ PROJECT := fish
 all:
 	make setup PROJECT=fish
 	make setup PROJECT=starship
+	make setup PROJECT=ripgrep
 	make setup PROJECT=fzf
 	make setup PROJECT=zoxide
 	make setup PROJECT=terminal
